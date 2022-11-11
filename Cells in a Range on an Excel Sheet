@@ -1,0 +1,23 @@
+class Solution {
+                    public:
+                        vector<string> cellsInRange(string s) {
+                            int s1 = int(s[0]);
+                            int s2 = int(s[3]);
+
+                            int i1 = int(s[1] - '0');
+                            int i2 = int(s[4] - '0');
+
+                            vector<string> v;
+
+                            for(int i = s1; i <= s2; i++){
+                                for(int j = i1; j &#60;= i2; j++){
+                                    char temp = char(i);
+                                    string te = to_string(j);
+                                    string tempAdd = temp + te;
+                                    v.push_back(tempAdd);
+                                }
+                            }
+
+                            return v;
+                        }
+                    };
