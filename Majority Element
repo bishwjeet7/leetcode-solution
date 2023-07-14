@@ -24,3 +24,14 @@ n == nums.length
  
 
 Follow-up: Could you solve the problem in linear time and in O(1) space?
+
+Solution - 
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size() / 2;
+        sort(nums.begin(),nums.end());
+        
+        return nums[n];
+    }
+};
