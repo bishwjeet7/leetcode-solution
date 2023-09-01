@@ -1,2 +1,81 @@
 Chef and Prime
 
+You are given N elements A1,A2…An and you have to create a new number by adding number of digits of each element. If the number is prime then print “Yes” otherwise print “No”.
+Input Format
+First-line will contain 
+T, number of test cases. Then the test cases follow
+Each test case contains two lines of input
+First-line contains number of element, 
+NSecond-line contains N elements A1,A2...An
+Constraints
+1≤T≤502≤N≤1030≤A[i]≤1018
+Output Format
+For each test case, output in a single line if the generated number is prime then print "Yes" otherwise "No".
+Sample Input 1
+1
+3
+9 12 111
+
+Sample Output 1
+No
+
+Explanation
+In the Given Test case : 
+9−>1,12−>2,111−>3
+. So the generated number will be 
+6(1+2+3)
+Since 
+6 is not prime so the answer will be 
+No
+Example
+Input
+1  
+3  
+9 12 111
+Output
+No
+
+
+ Answer - 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while ( t--){
+        int n;
+        cin >> n;
+        long long a[n];
+        for ( int i = 0 ; i < n ; i++){
+            cin >> a[i] ;
+        }
+        long long ans = 0;
+        int k;
+        for ( k = 0 ; k < n ; k++){
+            long long num = a[k];
+            if ( num == 0){
+                ans +=1;
+            }
+            while ( num > 0){
+                int rem = num %10;
+                num = num/10;
+                ans++;
+            }
+        }
+        long long count =0;
+        for ( int j=1; j<=ans; j++){
+            if ( ans%j == 0){
+                count++;
+            }
+        }
+        if ( count == 2){
+            cout << "Yes" << endl;
+        }
+        else {
+            cout << "No" << endl;
+        }
+    }
+    return 0;
+}
