@@ -35,3 +35,43 @@ N
 The holidays in Berland are approaching, so today each of these N students wants to cook some pancakes. The i-th student needs Bi units of time to cook.
 
 The students have understood that probably not all of them will be able to cook everything they want. How many students will be able to cook without violating the schedule?
+
+
+
+Solution - 
+
+#include <iostream>
+using namespace std;
+int main() {
+	int N = 0, count = 0;
+	cin >> N;
+	int arr1[N];
+	int arr2[N];
+	
+	for(int i = 0; i < N; i++){
+		int num = 0;
+		cin >> num;
+		arr1[i] = num;
+	}
+	
+	for(int i = 0; i < N; i++){
+		int num = 0;
+		cin >> num;
+		arr2[i] = num;
+	}
+	
+	for(int i = 0; i < N; i++){
+	    if(i == 0){
+	        if(arr1[i] >= arr2[i]){
+	            count++;
+	        }
+	    }
+	    else{
+	        if((arr1[i] - arr1[i-1]) >= arr2[i]){
+	            count++;
+	        }
+	    }
+	}
+	cout << count;
+    return 0;
+}
